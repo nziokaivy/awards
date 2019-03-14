@@ -1,1 +1,10 @@
 <h1>Hello World</h1>
+
+
+{% for project in projects %}
+
+<img src="{{ project.image.url }}" alt="Image" style="width:100%; height:550px;margin:auto; margin-left: auto;margin-right:auto;">
+<br>
+{{project.description}}
+
+{% endfor %}

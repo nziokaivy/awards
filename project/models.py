@@ -8,7 +8,7 @@ class Project(models.Model):
     This is project class model
     '''
     title = models.CharField(max_length =60)
-    image = models.ImageField(upload_to='image/', null=True)
+    image = models.ImageField(upload_to='images/', null=True)
     description = models.TextField()
     pub_date = models.DateTimeField(auto_now_add=True)
     profile = models.ForeignKey(User)
