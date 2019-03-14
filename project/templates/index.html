@@ -14,7 +14,7 @@ body, html {
 
 /* Style tab links */
 .tablink {
-  background-color: #555;
+  background-color: #0B0C10;
   color: white;
   float: left;
   border: none;
@@ -22,7 +22,7 @@ body, html {
   cursor: pointer;
   padding: 14px 16px;
   font-size: 17px;
-  width: 25%;
+  width: 20%;
 }
 
 .tablink:hover {
@@ -37,18 +37,21 @@ body, html {
   height: 100%;
 }
 
-#Home {background-color: black;}
-#News {background-color: green;}
-#Contact {background-color: blue;}
-#About {background-color: orange;}
+#Home {background-color: #0B0C10;}
+#Register {background-color: #1F2833;}
+#Login {background-color: #C5C6C7;}
+#Profile {background-color: #66FCF1;}
+#Logout {background-color: #45A29E;}
+
 </style>
 </head>
 <body>
 
-<button class="tablink" onclick="openPage('Home', this, 'black')" id="defaultOpen">Home</button>
-<button class="tablink" onclick="openPage('News', this, 'green')" >News</button>
-<button class="tablink" onclick="openPage('Contact', this, 'blue')">Contact</button>
-<button class="tablink" onclick="openPage('About', this, 'orange')">About</button>
+<button class="tablink" onclick="openPage('Home', this, '#0B0C10')" id="defaultOpen">Home</button>
+<button class="tablink" onclick="openPage('Register', this, '#1F2833')" >Register</button>
+<button class="tablink" onclick="openPage('Login', this, '#C5C6C7')">Login</button>
+<button class="tablink" onclick="openPage('Profile', this, '#66FCF1')">Profile</button>
+<button class="tablink" onclick="openPage('Logout', this, '#45A29E')">Logout</button>
 
 <div id="Home" class="tabcontent">
   {% block content %}
@@ -56,34 +59,34 @@ body, html {
 
 <h1>Hello World</h1>
 
+  {% for project in projects %}
+    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4" id="photos">
+      <img src="{{ project.image.url }}" class="img-responsive"  alt="Image" style="width:100%; height:450px; padding-left:0px; padding-right:0px;" data-toggle="modal" data-target="#{{image.id}}">
+    </div>       
+    
+  {% endfor %}
 
-        {% for project in projects %}
-  
-       
-                <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4" id="photos">
-                        <img src="{{ project.image.url }}" class="img-responsive"  alt="Image" style="width:100%; height:450px; padding-left:0px; padding-right:0px;" data-toggle="modal" data-target="#{{image.id}}">
-         
-        </div>
-       
-        
-        
-    {% endfor %}
 </div>
 
-<div id="News" class="tabcontent">
+<div id="Register" class="tabcontent">
   <h3>News</h3>
   <p>Some news this fine day!</p> 
 </div>
 
-<div id="Contact" class="tabcontent">
+<div id="Login" class="tabcontent">
   <h3>Contact</h3>
   <p>Get in touch, or swing by for a cup of coffee.</p>
 </div>
 
-<div id="About" class="tabcontent">
+<div id="Profile" class="tabcontent">
   <h3>About</h3>
   <p>Who we are and what we do.</p>
 </div>
+
+<div id="Logout" class="tabcontent">
+    <h3>About</h3>
+    <p>Who we are and what we do.</p>
+  </div>
 
 <script>
 function openPage(pageName,elmnt,color) {
