@@ -1,10 +1,20 @@
-<h1>Hello World</h1>
+{% extends 'base.html' %}
+
+{% block content %}
+    {% load bootstrap3 %}
+        <h1>Hello World</h1>
 
 
-{% for project in projects %}
+        {% for project in projects %}
+  
+       
+                <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4" id="photos">
+                        <img src="{{ project.image.url }}" class="img-responsive"  alt="Image" style="width:100%; height:350px; padding-left:0px; padding-right:0px;" data-toggle="modal" data-target="#{{image.id}}">
+         
+        </div>
+       
+        
+        
+    {% endfor %}
 
-<img src="{{ project.image.url }}" alt="Image" style="width:100%; height:550px;margin:auto; margin-left: auto;margin-right:auto;">
-<br>
-{{project.description}}
-
-{% endfor %}
+    {% endblock %}
