@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'project.apps.ProjectConfig',
     'bootstrap3',
+ 
    
 ]
 
@@ -127,3 +128,6 @@ STATIC_URL = '/static/'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+LOGIN_REDIRECT_URL = "home"
+LOGIN_URL = 'login'
