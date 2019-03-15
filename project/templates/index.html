@@ -1,111 +1,93 @@
+{% load bootstrap3 %}
+{% load static%}
+{% block content %}
 <!DOCTYPE html>
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
-* {box-sizing: border-box}
-
-/* Set height of body and the document to 100% */
-body, html {
-  height: 100%;
-  margin: 0;
-  font-family: Arial;
+.container {
+  position: relative;
+  width: 50%;
 }
 
-/* Style tab links */
-.tablink {
-  background-color: #0B0C10;
+.image {
+  opacity: 1;
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: .5s ease;
+  backface-visibility: hidden;
+}
+
+.middle {
+  transition: .5s ease;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.container:hover .image {
+  opacity: 0.3;
+}
+
+.container:hover .middle {
+  opacity: 1;
+}
+
+.text {
+  background-color:transparent;
   color: white;
-  float: left;
-  border: none;
-  outline: none;
-  cursor: pointer;
-  padding: 14px 16px;
-  font-size: 17px;
-  width: 20%;
+  font-size: 16px;
+  padding: 16px 32px;
+  border: 2px solid
 }
-
-.tablink:hover {
-  background-color: #777;
-}
-
-/* Style the tab content (and add height:100% for full page content) */
-.tabcontent {
-  color: white;
-  display: none;
-  padding: 100px 20px;
-  height: 100%;
-}
-
-#Home {background-color: #0B0C10;}
-#Register {background-color: #1F2833;}
-#Login {background-color: #C5C6C7;}
-#Profile {background-color: #66FCF1;}
-#Logout {background-color: #45A29E;}
-
 </style>
 </head>
-<body>
+<body style="background-color: #0B0C10; font-family: 'Encode Sans Semi Expanded', sans-serif;">
+    {% include "base.html" %}
+    {% include "navbar.html" %}
 
-<button class="tablink" onclick="openPage('Home', this, '#0B0C10')" id="defaultOpen">Home</button>
-<button class="tablink" onclick="openPage('Register', this, '#1F2833')" >Register</button>
-<button class="tablink" onclick="openPage('Login', this, '#C5C6C7')">Login</button>
-<button class="tablink" onclick="openPage('Profile', this, '#66FCF1')">Profile</button>
-<button class="tablink" onclick="openPage('Logout', this, '#45A29E')">Logout</button>
-
-<div id="Home" class="tabcontent">
-  {% block content %}
-{% include "base.html" %}
-
-<h1>Hello World</h1>
-
-  {% for project in projects %}
-    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4" id="photos">
-      <img src="{{ project.image.url }}" class="img-responsive"  alt="Image" style="width:100%; height:450px; padding-left:0px; padding-right:0px;" data-toggle="modal" data-target="#{{image.id}}">
-    </div>       
-    
+<div class="container">
+    {% for project in projects %}
+    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4" class="image" id="photos">
+      <img src="{{ project.image.url }}" class="img-responsive"  alt="Image" style="width:100%; height:450px; padding-left:0px; padding-right:0px;">
+      <div class="middle">
+          <div class="text">{{project.title}}</div>
+        </div>
+    </div>        
   {% endfor %}
-
-</div>
-
-<div id="Register" class="tabcontent">
-  <h3>News</h3>
-  <p>Some news this fine day!</p> 
-</div>
-
-<div id="Login" class="tabcontent">
-  <h3>Contact</h3>
-  <p>Get in touch, or swing by for a cup of coffee.</p>
-</div>
-
-<div id="Profile" class="tabcontent">
-  <h3>About</h3>
-  <p>Who we are and what we do.</p>
-</div>
-
-<div id="Logout" class="tabcontent">
-    <h3>About</h3>
-    <p>Who we are and what we do.</p>
+  
+    <div class="middle">
+    <div class="text">{{project.title}}</div>
   </div>
+</div>
+  
+</body>
+</html>
 
-<script>
-function openPage(pageName,elmnt,color) {
-  var i, tabcontent, tablinks;
-  tabcontent = document.getElementsByClassName("tabcontent");
-  for (i = 0; i < tabcontent.length; i++) {
-    tabcontent[i].style.display = "none";
-  }
-  tablinks = document.getElementsByClassName("tablink");
-  for (i = 0; i < tablinks.length; i++) {
-    tablinks[i].style.backgroundColor = "";
-  }
-  document.getElementById(pageName).style.display = "block";
-  elmnt.style.backgroundColor = color;
-}
 
-// Get the element with id="defaultOpen" and click on it
-document.getElementById("defaultOpen").click();
-</script>
+ 
+
+  <h1>Hello World</h1>
+
+  
+ 
+
+
+
+<div id="Register" class="tabcontent"></div>
+ 
+
+ 
+</div>
+
+
+
    
 </body>
 

@@ -10,3 +10,9 @@ def home(request):
     current_user = request.user
     projects = Project.objects.order_by('-pub_date')
     return render(request, 'index.html', {'projects':projects})
+
+def profile(request):
+    user = request.user    
+    images = Image.objects.all().filter(poster_id = user.id)
+    return render(request, 'profile.html', {'images':images, "user":user, "current_user":request.user })
+      
