@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http  import HttpResponse
-from .models import Project, Profile,Review
+from .models import Project, Profile, Review, Comments
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from .forms import ReviewForm, ProjectForm
@@ -33,7 +33,7 @@ def project(request, id):
             comment = form.cleaned_data['comment']
             review = Review()
             review.project = project
-            review.user = current_user
+            review.user = user
             review.comment = comment
             review.design_rating = design_rating
             review.content_rating = content_rating
@@ -42,5 +42,5 @@ def project(request, id):
 
     else:
         form = ReviewForm()
-    return render(request, 'image.html', {"project": project, "form":form, "comments":comments})    
+    return render(request, 'project.html', {"project": project, "form":form, "comments":comments,})    
 

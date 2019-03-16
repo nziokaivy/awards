@@ -17,17 +17,19 @@ class Project(models.Model):
     rating = models.TextField()
 
     def average_design(self):
-        all_ratings = list(map(lambda x: x.rating, self.designrating_set.all()))
-        return np.mean(all_ratings)
+        design_ratings = list(map(lambda x: x.design_rating, self.reviews.all()))
+        return np.mean(design_ratings)
 
     def average_usability(self):
-        all_ratings = list(map(lambda x: x.rating, self.usabilityrating_set.all()))
-        return np.mean(all_ratings)
+        usability_ratings = list(map(lambda x: x.usability_rating, self.reviews.all()))
+        return np.mean(usability_ratings)
 
     def average_content(self):
-        all_ratings = list(map(lambda x: x.rating, self.contentrating_set.all()))
-        return np.mean(all_ratings)
+        content_ratings = list(map(lambda x: x.content_rating, self.reviews.all()))
+        return np.mean(content_ratings)
 
+    def save_project(self):
+        self.save()
 
 class Profile(models.Model):
     profile_photo = models.ImageField(upload_to='image/', null=True)
@@ -56,3 +58,25 @@ class Review(models.Model):
     design_rating = models.IntegerField(choices=RATING_CHOICES, default=0)
     usability_rating = models.IntegerField(choices=RATING_CHOICES, default=0)
     content_rating = models.IntegerField(choices=RATING_CHOICES, default=0)
+    
+    def get_comment(self, id):
+        comments = Review.objects.filter(project_id =id)
+        return comments
+
+class Comments(models.Model):
+    comment = models.CharField(max_length = 100, blank = True)
+    project = models.ForeignKey(Project, related_name = "comments")
+    author = models.ForeignKey(User, related_name = "author")
+    pub_date = models.DateTimeField(auto_now_add = True,null = True)
+
+
+    def save_comment(self):
+        self.save()
+    
+    
+        
+    def delete_comment(self):
+        Comments.objects.get(id = self.id).delete()    
+
+    def __str__(self):
+        return self.comment        
