@@ -14,16 +14,20 @@
 
 {% block styles %}
 {% bootstrap_css %}
-  <link rel="stylesheet" href="{% static 'css/styles.css' %}"> {% endblock %}
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}"> 
+ {% endblock %}
 
 </head>
 
 <body>
-<div class="container" style="background-color:#fff; font-family: 'Nunito', sans-serif;">
+    {% include "base.html" %}
+    {% include "navbar.html" %}
+
+<div class="container" style="background-color:#fff; font-family: 'ABeeZee', sans-serif;">
 
 <div class="row">
 
-  <h1 style="font-family: 'Dosis', sans-serif;">Add New Project</h1>
+  <h1 style="font-family: 'ABeeZee', sans-serif;">Add New Project</h1>
   <form  action="{%url 'new_project'%}" method="post" style="font-family: 'Dosis', sans-serif;" enctype="multipart/form-data">
     {%csrf_token%}
 

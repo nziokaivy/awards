@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link href="https://fonts.googleapis.com/css?family=Dosis" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=ABeeZee" rel="stylesheet">
 <style>
 * {box-sizing: border-box;}
 
@@ -12,7 +12,7 @@ body {
 
 .topnav {
   overflow: hidden;
-  background-color: transparent;
+  background-color: #1A1A1D;
   border-radius: 10px;
   
 }
@@ -98,7 +98,7 @@ body {
 </head>
 <body>
 
-<div class="topnav" style="font-family: 'Dosis', sans-serif;">
+<div class="topnav" style="font-family: 'ABeeZee', sans-serif;">
   
   <a href="{% url 'home' %}" class="active"><i class="fa fa-home" ></i><br>HOME</a>
   <a href="/admin"><i class="fa fa-user-plus" ></i><br>ADMIN</a>
@@ -110,7 +110,7 @@ body {
       <a href="/accounts/register"><i class="fa fa-sign-out"></i>REGISTER</a>
       <a href="/accounts/login"><i class="fa fa-sign-in"></i><br>LOGIN</a>
       {% endif %}
-  <div class="search-container" style="font-family: 'Dosis', sans-serif;">
+  <div class="search-container" style="font-family: 'ABeeZee', sans-serif;">
     <form action="{% url 'search_projects' %}">
       <input type="text" placeholder="Search...." name="search">
       <button type="submit"><i class="fa fa-search"></i></button>
