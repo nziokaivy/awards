@@ -27,11 +27,37 @@ class Project(models.Model):
     def average_content(self):
         content_ratings = list(map(lambda x: x.content_rating, self.reviews.all()))
         return np.mean(content_ratings)
-    
-
 
     def save_project(self):
         self.save()
+
+    
+    def save_profile(self):
+        self.save()
+
+    def delete_profile(self):
+        self.delete()
+    
+
+    def update_caption(self):
+        self.save()
+
+    def get_project_id(cls, id):
+        project = Project.objects.get(pk=id)
+        return project
+
+    class Meta:
+        ordering = ('-pub_date',)
+
+
+    @classmethod
+    def search_users(cls, search_term):
+        profiles = cls.objects.filter(user__username__icontains=search_term)
+        return profiles
+
+    def __str__(self):
+        return self.user.username
+
 
 class Profile(models.Model):
     profile_photo = models.ImageField(upload_to='image/', null=True)

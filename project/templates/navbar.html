@@ -71,6 +71,12 @@ body {
   <a href="{% url 'new_project' %}">Add Project</a>
   <a href="{% url 'profile' %}">Profile</a>
   <a href="/logout">Logout</a>
+  <div class="search-container">
+    <form action="{% url 'search_projects' %}">
+      <input type="text" placeholder="Search.." name="search">
+      <button type="submit"><i class="fa fa-search"></i></button>
+    </form>
+  </div>
 
   {% else %}
   <a href="/accounts/register">Register</a>
