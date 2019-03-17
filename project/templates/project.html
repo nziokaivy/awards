@@ -4,34 +4,36 @@
 {% block content %}
 
 
-<div class="container">
+{% include "navbar.html" %}
+<br>
+<br>
+<br>
 
-  <div class="jumbotron text-center" style="background-color:white;">
 
-    <h1 class="h1" style="font-family: 'Dosis', cursive; color:blue;font-size:70px;">Awards</h1>
+     <h1 style="background-color:white; font-family: 'ABeeZee', sans-serif; margin-left:10px;">{{ project.title }}</h1>
+ 
 
 
-  </div>
-</div>
-
-<div class="container">
-<div class="card mb-3" style="width:40rem;;">
+<div class="card mb-3" style="width:40rem; font-family: 'ABeeZee', sans-serif; margin-left:10px;">
   <img class="card-img-top" src="{{project.image.url}}" alt="Card image cap" class="img-fluid" size="100px200">
   <div class="card-body">
 
 
-
-    <h5 class="card-title" style="font-family: 'Dosis', sans-serif;"><strong>Project Name:</strong>
-      <br>
-      {{project.title}}</h5>
-    <p class="card-text" style="font-family: 'Dosis', sans-serif;"><strong>Description Of Project:</strong>
+<br>
+<br>
+<br>
+<br>
+    <p class="card-text" style="font-family: 'ABeeZee', sans-serif;"><strong>Description Of Project:</strong>
       <br>
       {{project.description}}</p>
   </div>
-
+  <br>
+  <br>
+  <br>
+  <br>
   <div class="card border-secondary">
      <div class="card-header">
-     <h5 style="font-family: 'Dosis', sans-serif;"> Comments</h5>
+     <h5 style="font-family: 'ABeeZee', sans-serif;"><strong>Comments</strong></h5>
        </div>
 
 
@@ -42,22 +44,25 @@
 
     <div>
 
-        <p style="color:black; font-family: 'Dosis',sans-serif;">Comment by {{ review.user }}: {{ review.user.comment }}</p>
+  <p style="color:black; font-family: 'ABeeZee', sans-serif;">Comment by {{ review.user }}: {{ review.user.comment }}</p>
     </div>
+    <br>
+    <br>
+    <br>
+    <br>
 
 
 
+<h1 style="color:black; font-family: 'Dosis', sans-serif;">REVIEWS</h1>
 
-          <h1 style="color:black;font-family: 'Dosis', sans-serif;">AVERAGE OF REVIEWS</h1>
 
+<h5 style="color: black; font-family: 'ABeeZee', sans-serif;">{{ project.reviews.count }} reviews ({{ project.average_design | floatformat }} average rating of design)</h5>
+<h5 style="color: black; font-family: 'ABeeZee', sans-serif;">{{ project.reviews.count }} reviews ({{ project.average_content | floatformat }} average rating of content)</h5>
+<h5 style=" color: black;font-family: 'ABeeZee', sans-serif;">{{ project.reviews.count }} reviews ({{ project.average_usability | floatformat }} average rating of usability)</h5>
 
-<h5 style="font-family: 'Dosis',sans-serif;">{{ project.reviews.count }} reviews ({{ project.average_design | floatformat }} average rating of design)</h5>
-<h5 style="font-family: 'Dosis',sans-serif;">{{ project.reviews.count }} reviews ({{ project.average_content | floatformat }} average rating of content)</h5>
-<h5 style="font-family: 'Dosis',sans-serif;">{{ project.reviews.count }} reviews ({{ project.average_usability | floatformat }} average rating of usability)</h5>
-
-<h3 style="font-family: 'Dosis', sans-serif;">Add your comment</h3>
+<h3 style="color: black; font-family: 'ABeeZee', sans-serif;">Add your comment</h3>
   <hr>
-  <form action=""  method="post" style="font-family: 'Dosis',sans-serif;">
+  <form action=""  method="post" style="color: black; font-family: 'ABeeZee', sans-serif;">
     {%csrf_token%} {% bootstrap_form form %}
       <input type="submit" class="btn btn-primary" value="Post">
   </form>
@@ -70,7 +75,7 @@
 
      </div>
    </div>
-</div>
+
 </div>
 
 
