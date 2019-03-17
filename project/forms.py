@@ -16,3 +16,8 @@ class ReviewForm(forms.ModelForm):
         widgets = {
             'comment': Textarea(attrs={'cols': 40, 'rows': 15}),
         }
+
+class NewProjectForm(forms.ModelForm):
+    class Meta:
+        model = Project
+        exclude = ['user',]        

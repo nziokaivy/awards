@@ -27,6 +27,8 @@ class Project(models.Model):
     def average_content(self):
         content_ratings = list(map(lambda x: x.content_rating, self.reviews.all()))
         return np.mean(content_ratings)
+    
+
 
     def save_project(self):
         self.save()
@@ -80,3 +82,4 @@ class Comments(models.Model):
 
     def __str__(self):
         return self.comment        
+

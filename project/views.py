@@ -1,9 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect,get_object_or_404,HttpResponseRedirect
 from django.http  import HttpResponse
 from .models import Project, Profile, Review, Comments
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
-from .forms import ReviewForm, ProjectForm
+from .forms import ReviewForm, ProjectForm, NewProjectForm
 
 # Create your views here.
 
@@ -22,7 +22,7 @@ def project(request, id):
     project = Project.objects.get(pk = id)
     user = request.user
     comments = Review.get_comment(Review, id)
-    latest_review_list=Review.objects.all()
+    latest_review_list = Review.objects.all()
 
     if request.method == 'POST':
         form = ReviewForm(request.POST)
@@ -44,3 +44,16 @@ def project(request, id):
         form = ReviewForm()
     return render(request, 'project.html', {"project": project, "form":form, "comments":comments,})    
 
+def new_project(request):
+    current_user = request.user
+    if request.method == 'POST':
+        form = NewProjectForm(request.POST, request.FILES)
+        if form.is_valid():
+            project = form.save(commit=False)
+            project.user = current_user
+            project.save()
+        return redirect('home')
+
+    else:
+        form = NewProjectForm()
+    return render(request, 'new_project.html', {"form": form})

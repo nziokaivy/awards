@@ -39,14 +39,14 @@
 <h4>
         {{ review.project.title }}
         </h4>
-    {% for review in latest_review_list %}
+
     <div>
 
-        <p style="color:black; font-family: 'Dosis',sans-serif;">Comment by {{ review.user }}: {{ review.comment }}</p>
+        <p style="color:black; font-family: 'Dosis',sans-serif;">Comment by {{ review.user }}: {{ review.user.comment }}</p>
     </div>
 
 
-    {% endfor %}
+
 
           <h1 style="color:black;font-family: 'Dosis', sans-serif;">AVERAGE OF REVIEWS</h1>
 
