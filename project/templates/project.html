@@ -60,9 +60,9 @@
 <h5 style="color: black; font-family: 'ABeeZee', sans-serif;">{{ project.reviews.count }} reviews ({{ project.average_content | floatformat }} average rating of content)</h5>
 <h5 style=" color: black;font-family: 'ABeeZee', sans-serif;">{{ project.reviews.count }} reviews ({{ project.average_usability | floatformat }} average rating of usability)</h5>
 
-<h3 style="color: black; font-family: 'ABeeZee', sans-serif;">Add your comment</h3>
+<h3 style=" color: black; font-family: 'ABeeZee', sans-serif;">Add your comment</h3>
   <hr>
-  <form action=""  method="post" style="color: black; font-family: 'ABeeZee', sans-serif;">
+  <form action=""  method="post" style=" color: black;font-family: 'ABeeZee', sans-serif;">
     {%csrf_token%} {% bootstrap_form form %}
       <input type="submit" class="btn btn-primary" value="Post">
   </form>
