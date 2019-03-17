@@ -1,19 +1,20 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="https://fonts.googleapis.com/css?family=Dosis" rel="stylesheet">
 <style>
 * {box-sizing: border-box;}
 
 body {
   margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Poppins', sans-serif;
 }
 
 .topnav {
   overflow: hidden;
-  background-color: #3AAFA9;
+  background-color: transparent;
   border-radius: 10px;
+  
 }
 
 .topnav a {
@@ -25,6 +26,7 @@ body {
   text-decoration: none;
   font-size: 17px;
   border-radius: 10px;
+  margin-right: 50px;
 }
 
 .topnav a:hover {
@@ -36,6 +38,8 @@ body {
   background-color: #17252A;
   color: white;
   border-radius: 10px;
+  margin-right: 50px;
+
 }
 
 .topnav .search-container {
@@ -49,6 +53,7 @@ body {
   font-size: 17px;
   border: none;
   border-radius: 10px;
+  
 }
 
 .topnav .search-container button {
@@ -60,6 +65,8 @@ body {
   font-size: 17px;
   border: none;
   cursor: pointer;
+  
+  
 }
 
 .topnav .search-container button:hover {
@@ -67,6 +74,8 @@ body {
   background: transparent;
   border-radius: 10px;
 }
+
+
 
 @media screen and (max-width: 600px) {
   .topnav .search-container {
@@ -89,21 +98,23 @@ body {
 </head>
 <body>
 
-<div class="topnav">
-  <a href="{% url 'home' %}" class="active">Home</a>
-  <a href="/admin" >Admin</a>
-  <div class="search-container">
-    <form action="{% url 'search_projects' %}">
-      <input type="text" placeholder="Search.." name="search">
-      <button type="submit"><i class="fa fa-search"></i></button>
-      {% if user.is_authenticated %}
-      <a href="{% url 'new_project' %}">Add Project</a>
-      <a href="{% url 'profile' %}">Profile</a>
-      <a href="/logout">Logout</a>
+<div class="topnav" style="font-family: 'Dosis', sans-serif;">
+  
+  <a href="{% url 'home' %}" class="active"><i class="fa fa-home" ></i><br>HOME</a>
+  <a href="/admin"><i class="fa fa-user-plus" ></i><br>ADMIN</a>
+  {% if user.is_authenticated %}
+      <a href="{% url 'new_project' %}"><i class="fa fa-plus"></i><br>ADD PROJECT</a>
+      <a href="{% url 'profile' %}"><i class="fa fa-user"></i><br>PROFILE</a>
+      <a href="/logout"><i class="fa fa-pencil-square-o"></i><br>LOGOUT</a>
       {% else %}
-      <a href="/accounts/register">Register</a>
-      <a href="/accounts/login">Login</a>
+      <a href="/accounts/register"><i class="fa fa-sign-out"></i>REGISTER</a>
+      <a href="/accounts/login"><i class="fa fa-sign-in"></i><br>LOGIN</a>
       {% endif %}
+  <div class="search-container" style="font-family: 'Dosis', sans-serif;">
+    <form action="{% url 'search_projects' %}">
+      <input type="text" placeholder="Search...." name="search">
+      <button type="submit"><i class="fa fa-search"></i></button>
+      
     </form>
   </div>
 </div>

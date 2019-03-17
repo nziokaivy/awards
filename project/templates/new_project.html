@@ -13,31 +13,32 @@
   {{form.media}}
 
 {% block styles %}
-    {% bootstrap_css %}
+{% bootstrap_css %}
   <link rel="stylesheet" href="{% static 'css/styles.css' %}"> {% endblock %}
 
 </head>
 
 <body>
-<div class="container" style="background-color:#fff;">
+<div class="container" style="background-color:#fff; font-family: 'Nunito', sans-serif;">
 
-     <div class="row">
+<div class="row">
 
-
+  <h1 style="font-family: 'Dosis', sans-serif;">Add New Project</h1>
   <form  action="{%url 'new_project'%}" method="post" style="font-family: 'Dosis', sans-serif;" enctype="multipart/form-data">
     {%csrf_token%}
 
     {% bootstrap_form form%}
-    <input id="id_myfield" type="submit" class="btn btn-success btn-lg" value="Post">
+    <input id="id_myfield" type="submit" class="btn btn-info btn-lg" value="Post">
   </form>
 
    {% block scripts %}
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  {% bootstrap_javascript %} {% endblock %}
+  {% bootstrap_javascript %}
+  {% endblock %}
 
 
-     </div>
+</div>
 </div>
 </body>
 {% endblock %}
