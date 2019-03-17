@@ -3,7 +3,7 @@ from django.http  import HttpResponse
 from .models import Project, Profile, Review, Comments
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
-from .forms import ReviewForm, ProjectForm, NewProjectForm
+from .forms import ReviewForm, ProjectForm, NewProjectForm, UpdatebioForm
 
 # Create your views here.
 
@@ -72,3 +72,17 @@ def search_projects(request):
         message = "You haven't searched for any person"
         return render(request, 'search.html', {"message": message})
 
+def edit_profile(request):
+    current_user = request.user
+    if request.method == 'POST':
+        form = UpdatebioForm(request.POST, request.FILES, instance=current_user.profile)
+        print(form.is_valid())
+        if form.is_valid():
+            image = form.save(commit=False)
+            image.user = current_user
+            image.save()
+        return redirect('home')
+
+    else:
+        form = UpdatebioForm()
+    return render(request, 'edit_profile.html', {"form": form})

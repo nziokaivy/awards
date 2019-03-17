@@ -55,8 +55,6 @@ class Project(models.Model):
         profiles = cls.objects.filter(user__username__icontains=search_term)
         return profiles
 
-    def __str__(self):
-        return self.user.username
 
 
 class Profile(models.Model):
