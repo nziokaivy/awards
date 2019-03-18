@@ -13,22 +13,27 @@
   <title>Edit Your Profile Information</title>
   {{form.media}}
 
-{% block styles %} {% bootstrap_css %}
+{% block styles %} 
+{% bootstrap_css %}
   <link rel="stylesheet" href="{% static 'css/news.css' %}"> {% endblock %}
 
 </head>
+{% include "base.html" %}
+{% include "navbar.html" %}
 
-<body>
+<body style="font-family: 'ABeeZee', sans-serif;">
 <div class="container" style="background-color:#fff;">
+  <br>
+<h1 style="font-family: 'ABeeZee', sans-serif; margin-right:0px;">Edit Your Profile Information</h1>
 
      <div class="row">
 
-
-  <form  action="{%url 'edit_profile'%}" method="post" enctype="multipart/form-data">
+  <br>
+  <form  action="{%url 'edit_profile'%}" method="post" enctype="multipart/form-data" style="font-family: 'ABeeZee', sans-serif;">
     {%csrf_token%}
 
     {% bootstrap_form form%}
-    <input id="id_myfield" type="submit" class="btn btn-success btn-lg" value="Post">
+    <input id="id_myfield" type="submit" class="btn btn-success btn-lg" value="Post" style="font-family: 'ABeeZee', sans-serif;">
   </form>
 
    {% block scripts %}
