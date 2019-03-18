@@ -26,4 +26,4 @@ class NewProjectForm(forms.ModelForm):
 class UpdatebioForm(forms.ModelForm):
     class Meta:
         model = Profile
-        exclude = ['poster',]
+        exclude = ['poster','project']
