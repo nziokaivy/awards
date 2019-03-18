@@ -74,7 +74,7 @@ DISABLE_COLLECTSTATIC=1
 * Run the command "python3.6 manage.py runserver" to launch the        application
 
 ## Running tests
-* You can run tests: 
+* You can run tests using the command: 
 ```
 python3.6 manage.py test project
 ```
