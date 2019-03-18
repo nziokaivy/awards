@@ -87,9 +87,9 @@ body {
     {% if user.is_authenticated %}
     <a href="{% url 'new_project' %}"><i class="fa fa-plus"></i><br>ADD PROJECT</a>
     <a href="{% url 'profile' %}"><i class="fa fa-user"></i><br>PROFILE</a>
-    <a href="/logout"><i class="fa fa-pencil-square-o"></i><br>LOGOUT</a>
+    <a href="/logout"><i class="fa fa-sign-out"></i><br>LOGOUT</a>
     {% else %}
-    <a href="/accounts/register"><i class="fa fa-sign-out"></i>REGISTER</a>
+    <a href="/accounts/register"><i class="fa fa-pencil-square-o"></i><br>REGISTER</a>
     <a href="/accounts/login"><i class="fa fa-sign-in"></i><br>LOGIN</a>
     {% endif %}
     <div class="search-container" style="font-family: 'Dosis', sans-serif;">
