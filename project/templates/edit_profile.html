@@ -10,7 +10,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Edit Your Profile Information</title>
+  <title>Edit Profile Information</title>
   {{form.media}}
 
 {% block styles %} 
@@ -33,7 +33,7 @@
     {%csrf_token%}
 
     {% bootstrap_form form%}
-    <input id="id_myfield" type="submit" class="btn btn-success btn-lg" value="Post" style="font-family: 'ABeeZee', sans-serif;">
+    <input id="id_myfield" type="submit" class="btn btn-info btn-lg" value="Post" style="font-family: 'ABeeZee', sans-serif;">
   </form>
 
    {% block scripts %}
