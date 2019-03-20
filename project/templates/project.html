@@ -8,44 +8,45 @@
 <br>
 <br>
 <br>
+<div class="container" class="responsive">
 
-
-<h1 style="background-color:white; font-family: 'ABeeZee', sans-serif; margin-left:10px;">{{ project.title }}</h1>
+<h1 style="background-color:white; font-family: 'ABeeZee', sans-serif; margin-left:20rem; color: black;"><strong>{{ project.title }}</strong></h1>
+<hr>
  
 
 
 <div class="card mb-3" style="width:40rem; font-family: 'ABeeZee', sans-serif; margin-left:10px;">
+
   <a href="www.google.com"><img class="card-img-top" src="{{project.image.url}}" alt="Card image cap" class="img-fluid" size="100px200"></a>
-  <div class="card-body">
+
+  <div class="card-body" style="padding-left:150px;">
 
 
 <br>
 <br>
 <br>
 <br>
-    <p class="card-text" style="font-family: 'ABeeZee', sans-serif;"><strong>Description Of Project:</strong>
+    <p class="card-text" style="font-family: 'ABeeZee', sans-serif;"><strong><h2 style="font-family: 'ABeeZee', sans-serif; color: black;">Project Description </h2></strong>
+      <hr>
       <br>
       {{project.description}}</p>
+      
   </div>
   <br>
   <br>
   <br>
   <br>
-  <div class="card border-secondary">
-     <div class="card-header">
-     <h5 style="font-family: 'ABeeZee', sans-serif;"><strong>Comments</strong></h5>
-       </div>
+  
+     
 
 
      <div class="card-body text-primary">
 <h4>
         {{ review.project.title }}
+        
         </h4>
 
-    <div>
-
-  <p style="color:black; font-family: 'ABeeZee', sans-serif;">Comment by {{ review.user }}: {{ review.user.comment }}</p>
-    </div>
+    
     <br>
     <br>
     <br>
@@ -53,16 +54,18 @@
 
 
 
-<h1 style="color:black; font-family: 'Dosis', sans-serif;">REVIEWS</h1>
+<h2 style="color: black;font-family: 'ABeeZee', sans-serif;; margin-left:10rem;"><strong>Reviews</strong></h2>
+<hr>
+<br>
 
-
-<h5 style="color: black; font-family: 'ABeeZee', sans-serif;">{{ project.reviews.count }} reviews ({{ project.average_design | floatformat }} average rating of design)</h5>
-<h5 style="color: black; font-family: 'ABeeZee', sans-serif;">{{ project.reviews.count }} reviews ({{ project.average_content | floatformat }} average rating of content)</h5>
-<h5 style=" color: black;font-family: 'ABeeZee', sans-serif;">{{ project.reviews.count }} reviews ({{ project.average_usability | floatformat }} average rating of usability)</h5>
-
-<h3 style=" color: black; font-family: 'ABeeZee', sans-serif;">Add your comment</h3>
+<h5 style="color: black; font-family: 'ABeeZee', sans-serif; margin-left:150px;" >{{ project.reviews.count }} reviews ({{ project.average_design | floatformat }} average rating of design)</h5>
+<h5 style="color: black; font-family: 'ABeeZee', sans-serif; margin-left:150px;">{{ project.reviews.count }} reviews ({{ project.average_content | floatformat }} average rating of content)</h5>
+<h5 style=" color: black;font-family: 'ABeeZee', sans-serif; margin-left:150px;">{{ project.reviews.count }} reviews ({{ project.average_usability | floatformat }} average rating of usability)</h5>
+<br>
+<br>
+<h2 style=" color: black; font-family: 'ABeeZee', sans-serif; margin-left:9rem;"><strong>Add your comment</strong></h2>
   <hr>
-  <form action=""  method="post" style=" color: black;font-family: 'ABeeZee', sans-serif;">
+  <form action=""  method="post" style=" color: black;font-family: 'ABeeZee', sans-serif; margin-left:9rem;">
     {%csrf_token%} {% bootstrap_form form %}
       <input type="submit" class="btn btn-primary" value="Post">
   </form>
@@ -70,14 +73,23 @@
 
 </div>
 
+<div class="card-header">
+  <h5 style="font-family: 'ABeeZee', sans-serif;"><strong>Comments</strong></h5>
+   <hr>
+    </div>
+
+    <div>
+
+<p style="color:black; font-family: 'ABeeZee', sans-serif;">Comment by {{ review.user }}: {{ review.user.comment }}</p>
+   </div>
 
 
-
+   <div class="card border-secondary">
      </div>
    </div>
 
 </div>
-
+</div>
 
 
 {% endblock %}
