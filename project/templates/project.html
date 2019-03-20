@@ -79,10 +79,10 @@
     </div>
 
     <div>
-
-<p style="color:black; font-family: 'ABeeZee', sans-serif;">Comment by {{ review.user }}: {{ review.user.comment }}</p>
-   </div>
-
+      {% for review in comments %}
+      <p style="color:black; font-family: 'ABeeZee', sans-serif;">Comment by {{ review.user }}: {{ review.comment }}</p>
+    </div>
+  {% endfor %}
 
    <div class="card border-secondary">
      </div>
