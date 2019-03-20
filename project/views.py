@@ -53,10 +53,12 @@ def new_project(request):
             project.user = current_user
             project.save()
         return redirect('home')
-
     else:
         form = NewProjectForm()
-    return render(request, 'new_project.html', {"form": form})
+    return render(request, 'new_project.html', {
+        'form': form
+    })    
+
 
 def search_projects(request):
 
